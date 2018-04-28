@@ -4,9 +4,11 @@ feature 'User adds some t-shirts to wardrobe and then finds what to wear' do
   Steps 'Michael visits shirt-o to manage their t-shirt wardrobe' do
     When 'Michael adds a t-shirt to their wardrobe' do
       visit root_path
-      pending 'need a page fragment/page model implementation'
-      fail 'need to create a page model to interact with page'
-      # click new t-shirt
+      focus_on(:garment) do |tracker|
+        tracker.add_t_shirt
+        pending 'need a way to add an actual t-shirt'
+        tracker.name('classic white t-shirt')
+      end
       # focus_on(:shirt).create_new
       # upload image
       # name "classic white t-shirt"
